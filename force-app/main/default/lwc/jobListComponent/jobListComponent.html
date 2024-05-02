@@ -1,0 +1,65 @@
+<template>
+    <section class="gottalent">
+        <div class="container gottalentcontainer">
+            <div class="gottalentContent">
+                <div class="leftContent">
+                    <h1>Got Talent ?<br> Meet Opportunity</h1>
+                    <div class="inputButton">
+                        <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                        <input type="search" id="searchTxt" onkeyup={handleInput} placeholder="Job titles or keywords" class="inputsearch">
+                        <button class="butonsearch" onclick={searchJobs}>Search</button>
+                    </div>
+                    <p><span>Popular Searches:</span> Analytics, Customer Services, Design & Creative, Development & IT</p>
+                </div>
+                <div class="rightContent">
+                    <div class="heroimage">
+                        <img src={teamsImage}>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!---Heri Section-->
+    <!--Latest Job section-->
+    <section class="LatestJob">
+        <div class="container p-0">
+            <div class="titleofjob">
+                <div class="headingjob">
+                    <h2>Latest jobs</h2>
+                </div>
+                <div class="alljobs">
+                <button class = "alljobsbtn" onclick={getAllJobs}>View all jobs</button>
+                </div>
+            </div>
+            <div class="Cardsjob row">
+                <template if:true={isLoaded}>
+                    <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+                    </lightning-spinner>
+               </template>
+                <template for:each={allJobs} for:item="job">
+                <div class="cardscontent col-lg-4 col-md-6 col-sm-12" key={job.Id}>
+                    <div class="cardsbody" >
+                        <div class="cardscontenttop" >
+                            <p><span>Date Posted:</span> {job.formattedPostedDate}</p>
+                            <!-- <a href="#">5 days left to apply</a> -->
+                        </div>
+                        <h3>{job.Name}</h3>
+                        <br>
+                        <span class="companydetail">by <span class='namehawk'>HawkLogix Pakistan</span> in <span class="profession">Development & IT</span></span>
+                        <!-- <div class="viewdetailbutton"> -->
+                        <br>
+                        <button class="viewDetail"><a target="_self" href={job.Url}>View Detail</a></button>
+                        <!-- </div> -->
+                        <!-- <p class="descriptionjob">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra sem nec ante ultrices vulputate. Nam congue et neque sit amet sagittis.</p> -->
+                    </div>
+                </div>
+            </template>                                                                
+            </div>
+            
+        </div>
+    </section>
+    
+    
+    
+</template>

@@ -1,0 +1,29 @@
+<apex:page controller="AccountListController">
+    
+    <apex:form >
+            <apex:pageBlock title="Jobs Search - Hawklogix Demo">
+                
+            <apex:pageBlockSection >
+                
+            <apex:inputText label="Enter Job Name" value="{!searchKeyword}" title="Enter job Name"/>
+            <apex:commandButton value="Search" action="{!searchAccounts}"/>
+                
+            </apex:pageBlockSection>
+                
+            </apex:pageBlock>
+
+     </apex:form>
+ 
+    <apex:pageBlock title=" Latest Jobs">
+        
+            <apex:pageBlockTable value="{!JobList}" var="job">
+            <apex:column headerValue="Job Name">
+            <apex:outputLink value="/{!job.Id}">{!job.Name}</apex:outputLink>
+            </apex:column>
+           
+            </apex:pageBlockTable>
+        
+     </apex:pageBlock>
+    
+    
+</apex:page>

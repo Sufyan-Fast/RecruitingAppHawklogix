@@ -1,0 +1,30 @@
+<apex:page standardStylesheets="true" standardController="Job__c" >
+   
+    <apex:form >
+        
+        <div>
+          <apex:inputField value="{! Job__c.Job_Number__c}"/>
+        </div>
+        <div>
+           <apex:inputField value="{! Job__c.Name}"/>  
+        </div>
+        <div>
+           <apex:inputField value="{! Job__c.Job_Description__c}"/>  
+        </div>
+        <div>
+          <apex:inputField value="{! Job__c.Job_Requirements__c}"/>
+        </div>
+        <div>
+           <apex:inputField value="{! Job__c.Qualifications__c}"/>  
+        </div>
+        <div>
+          <apex:inputField value="{! Job__c.Employment_type__c}"/>
+        </div>
+    	
+    	
+        
+        
+    </apex:form>
+   
+
+   </apex:page>

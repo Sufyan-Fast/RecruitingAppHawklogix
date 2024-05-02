@@ -1,0 +1,125 @@
+<apex:page title="Job Details" showheader="true" sidebar="false" standardStylesheets="false">
+    <apex:composition template="{!$Site.Template}">
+        <apex:define name="header"></apex:define>
+        <apex:define name="body">
+            <head>
+
+<!-- <title>{!selectedJob.Name}</title> -->
+            </head>
+            <!-- Use HTML link tag to override Salesforce styles -->
+            <style>
+.applyButton {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 250px;
+    float: center;
+    align: center;
+    background-image: none;
+}
+
+.buttonDiv {
+    text-align: center;
+}
+
+#jobdetailsTable tr td {
+    border-style: none;
+    text-align: left;
+}
+
+#errorMsgPanel tr td {
+    border-style: none;
+    text-align: left;
+}
+</style>
+
+            <apex:outputpanel >         
+            <!--    <c:JobSearch queryInput="{!JSENCODE($CurrentPage.parameters.q)}" /> -->
+                <br />
+                <!-- <image src="{!myimageurl}"/> -->
+                
+                <div id="errorMsgPanel" style="width: 70%; margin: 0 auto;">
+                    <apex:pageMessages />
+                </div>
+
+                 <apex:outputPanel id="jobDetailBlock" >
+                    <div id="jobdetails" style="width: 70%; margin: 0 auto;">
+                        <table id="jobdetailsTable">
+                            <apex:repeat value="{!$ObjectType.Job__c.fieldsets.FieldSetExternalJobListingpage}"
+                                var="fieldValue">
+                                <tr>
+                                    <td><b> <apex:outputText value="{!fieldValue.label}" />:</b>
+                                    </td>
+                                <!--    <td><apex:outputField value="{!selectedJob[fieldValue]}" />
+                                    </td> -->
+                                </tr>
+                            </apex:repeat>
+                        </table>
+
+                    <div class="buttonDiv">
+                            <input type="Submit" value="{!$Label.RecApp_Apply}"
+                                
+                                class="applyButton" />
+                        </div>
+                        <!--onClick="window.location='{!$Page.cga__Apply}?jobNumber={!jobNumber}&q={!$CurrentPage.parameters.q}';" -->
+                    </div> 
+                </apex:outputPanel>
+            </apex:outputpanel>
+
+            <!--  https://search.google.com/structured-data/testing-tool  -->
+ <!--   <apex:outputPanel id="jobDetailJSONBlock" rendered="{!jobNumberInUrlIsAvailable}">
+
+            <script type="application/ld+json"> {
+
+  "@context" : "http://schema.org/",
+  "@type" : "JobPosting",
+  "title" : "{!jobTitle}",
+  "description" : "{!jobDescription}",
+  "experienceRequirements":"{!jobExperienceRequirements}",
+  "educationRequirements":"{!jobEducationRequirements}",
+  "industry":"{!jobIndustry}", 
+  "skills":"{!jobSkills}",
+  "qualifications":"{!jobQualifications}",
+  "responsibilities":"{!jobDescription}",
+  "workHours":"{!jobWorkHours}",
+  
+"identifier": {
+    "@type": "PropertyValue",
+    "name": "{!$Organization.Name}",
+    "value": "{!jobNumber}"
+ 
+  },
+ "datePosted" : "{!jobDatePosted}", 
+  "validThrough" : "{!jobValidThrough}",
+  "employmentType" : "{!jobEmploymentType}",
+ 
+ "hiringOrganization" : {  
+    "@type" : "Organization",
+    "name" : "{!$Organization.Name}",
+    "sameAs" : "{!$Organization.Name}", 
+    "logo" :"{!$Site.BaseUrl}{!myimageurl}"
+  },
+  "jobLocation" : { 
+    "@type" : "Place",
+    "address" : {
+      "@type" : "PostalAddress",
+      "streetAddress" : "{!jobLocationStreetAddress}",
+      "addressLocality" : "{!jobLocationLocality}",
+      "addressRegion" : "{!jobLocationaddressRegion}",
+      "postalCode" : "{!jobLocationpostalCode}",
+      "addressCountry": "{!jobLocationaddressCountry}"
+    }
+  }
+}
+</script>
+</apex:outputPanel> -->
+        </apex:define>
+    <apex:define name="footer"></apex:define>
+    </apex:composition>
+    
+</apex:page>

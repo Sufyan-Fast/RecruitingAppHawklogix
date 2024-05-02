@@ -1,0 +1,157 @@
+<apex:page sidebar="false" showHeader="false" Controller="JobPageContRedirect" >
+   
+ <style>
+        	@font-face {
+    font-family:popinsami;
+         src: url('{!$Resource.fonts}/Poppins-Medium.woff') format('woff');
+    	 src: url('{!$Resource.fonts}/Poppins-Medium.woff') format('woff2');
+  }
+  @font-face {
+    font-family:popinmedium;
+    src: url('{!$Resource.fonts}/Poppins-Medium.woff') format('woff');
+    src: url('{!$Resource.fonts}/Poppins-Medium.woff2') format('woff2');
+  }
+  @font-face {
+    font-family:popinlight;
+     src: url('{!$Resource.fonts}/Poppins-BlackItalic.woff') format('woff');
+     src: url('{!$Resource.fonts}/Poppins-BlackItalic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family:popinregular;
+   src: url('{!$Resource.fonts}/Poppins-Regular.woff') format('woff');
+    src: url('{!$Resource.fonts}/Poppins-Regular.woff2') format('woff2');
+  }
+        </style>
+    <html>
+ <head>
+            <title>Hawk Logix</title>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <apex:stylesheet value="{!$Resource.newUpdatedStyle}"/>
+            <apex:stylesheet value="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+        </head>
+        <body style="padding:0px; margin:0px;">
+            <apex:includeScript value="{!URLFOR($Resource.bootstraps, '/bootstrap.min.js')}"/>
+            <apex:includeScript value="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"/>
+            <apex:includeScript value="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"/>
+            <section class="navigation">
+                <div class="container">
+                    <div class="navbar">
+                        <div class="logo">
+                              <apex:outputLink value="{!url}">
+                            <img src="{!$Resource.logo}"/>
+                            </apex:outputLink>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <apex:form >
+	<apex:actionFunction name="redirectToApplyPage" action="{!redirectMethod}" rerender=""/>
+            </apex:form>
+                <div class="mmenu">
+                <div class="button">
+                    <span><i class="fa fa-times"></i></span>
+                </div>
+                <div class="logo">
+                    <a ><img src="{!$Resource.logo}" alt="Logo"/></a>
+                </div>
+            </div>
+
+            <section class="detailhero">
+                <div class="container">
+                    <div class="jobpost">
+                        <div class="leftside">
+                            <p class="datepst"><span class="by">Date Posted:</span> {!TEXT(datePosted)}</p>
+                            <h3>{!jobs.Name}</h3>
+                            <p class="profession"><span class="by">By</span> <span class="compay">HawkLogix Pakistan</span> <span class="by">in</span> Development and IT</p>
+                                    </div>
+                        <apex:form >
+                        <div class="rightside">
+                            <div class="applybutton">
+                                <button class="applybtn"><apex:commandLink value="Apply Now" action="{!redirectMethod}"/></button>
+                            </div>
+                        </div>
+                            </apex:form>
+                    </div>
+                    <hr/>
+                </div>
+            </section>
+
+            <section class="overviewsection">
+                <div class="container">
+                    <div class="overviewContent row">
+                        <div class="left-side col-lg-8 col-md-7 col-sm-12">
+                        
+                            <div class="jobrequeriment">
+                                <h4>Job Requirements</h4>
+                                <p>{!jobRequirement}</p>
+                                
+                            </div>
+                            <div class="jobqualification">
+                                <h4>Job Qualifications</h4>
+                                <p>{!jobQualification}</p>	
+                            </div>
+                            <div class="jobqualification">
+                                <h4>Job Description</h4>
+                                <p>{!jobDescription}</p>
+                            </div>
+                            <apex:form >
+                         
+              
+                    <div class="btnformsubmit " >
+                        
+                           <!-- <apex:commandButton value="Submit" action="{!saveAndRedirect}" /> -->
+                           
+                           	<apex:commandLink action="{!getUrl}" style="background-color:#20c997!important;" ><button class="btn backbutn" style="background-color:#20c997!important">Back</button></apex:commandLink> 
+                        </div>       
+                                
+                            </apex:form>
+                        </div>
+                        
+                        
+                        <div class="rightcontent mb-sm-5 col-lg-4 col-md-5 col-sm-12">
+                            <div class="sidebarcontent row">
+                                <div class="jobnumber col-lg-12 col-md-12 col-6">
+                                    <p class="title">Job Number</p>
+                                    <p>
+                                        {!jobNumber}
+                                    </p>
+                                </div>
+                                <div class="jobnumber col-lg-12 col-md-12 col-6">
+                                    <p class="title">Location</p>
+                                    <p>{!location}</p>
+                                </div>
+                                 <div class="jobnumber col-lg-12 col-md-12 col-6">
+                                    <p class="title">Job Type</p>
+                                    <p>{!employmentType}</p>
+                                </div> 
+                                <div class="jobnumber col-lg-12 col-md-12 col-6">
+                                    <p class="title">Experience Required</p>
+                                    <p>{!experience}</p>
+                                </div>
+                               
+                                <div class="jobnumber col-lg-12 col-md-12 col-6">
+                                    <p class="title">Salary</p>
+                                    <p>{!salary}</p>
+                                </div>
+                                <div class="jobnumber col-lg-12 col-md-12 col-6">
+                                    <p class="title">Last Date</p>
+                                    <p>{!TEXT(targetHireDate)}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="container">
+                    <div class="footercontent">
+                        <p>Copyright © 2000-2024 salesforce.com, inc. All rights reserved</p>
+                        <p>Privacy Statement. I. Security Statement. I. Terms of Use</p>
+                    </div>
+                </div>
+            </footer>
+        </body>
+    </html>
+</apex:page>

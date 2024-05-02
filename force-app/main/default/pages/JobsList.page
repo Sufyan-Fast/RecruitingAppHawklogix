@@ -1,0 +1,151 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" controller="JobListPageController">
+
+    <html>
+        <style>
+        	@font-face {
+    font-family:popinlight;
+         src: url('{!$Resource.fonts}/Poppins-BoldItalic.woff') format('woff');
+    	 src: url('{!$Resource.fonts}/Poppins-BoldItalic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family:popinmedium;
+    src: url('{!$Resource.fonts}/Poppins-BlackItalic.woff') format('woff');
+    src: url('{!$Resource.fonts}/Poppins-Regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family:popinsami;
+     src: url('{!$Resource.fonts}/Poppins-Regular.woff') format('woff');
+     src: url('{!$Resource.fonts}/Poppins-Medium.woff2') format('woff2');
+  }
+  @font-face {
+    font-family:popinregular;
+   src: url('{!$Resource.fonts}/Poppins-Medium.woff') format('woff');
+    src: url('{!$Resource.fonts}/Poppins-Medium.woff2') format('woff2');
+  }
+        </style>
+        <head>
+            <title>Hawk Logix</title>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <apex:stylesheet value="{!$Resource.newUpdatedStyle}"/>
+            <apex:stylesheet value="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+        </head>
+        <body style="padding:0px; margin:0px;">
+            <apex:includeScript value="{!URLFOR($Resource.bootstraps, '/bootstrap.min.js')}"/>
+            <apex:includeScript value="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"/>
+            <apex:includeScript value="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"/>
+
+            <section class="navigation">
+	<div class="container p-0">
+		<div class="navbar">
+			<div class="logo">
+                  <apex:outputLink value="{!url}">
+                            <img src="{!$Resource.logo}"/>
+                            </apex:outputLink>
+			</div>
+		</div>
+	</div>
+</section>
+            <apex:form >
+                        <section class="gottalent">
+	<div class="container gottalentcontainer">
+		<div class="gottalentContent">
+			<div class="leftContent">
+                <h1>Got Talent ?<br/> Meet Opportunity</h1>
+				                                    <div class="inputButton">
+                                        <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a><br/>
+                                        <apex:inputText styleClass="inputsearch" id="jobSearch" value="{!searchQuery}" html-placeholder="Job Titles or Keywords" />
+                                        <apex:commandLink action="{!searchJobs}" reRender="jobsContainer">
+                                            <button class="butonsearch" >Search</button>
+                                        </apex:commandLink>
+                                    </div>
+				<p><span>Popular Searches:</span> Analytics, Customer Services, Design, Creative, Development and IT</p>
+			</div>
+			<div class="rightContent">
+				<div class="heroimage">
+                    <img src="{!$Resource.NewImage}"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</apex:form>
+                        <!-- Mobile Menu -->
+                        <div class="mmenu">
+                            <div class="button">
+                                <span><i class="fa fa-times"></i></span>
+                            </div>
+                            <div class="logo">
+                                <a href="{!url}"><img src="{!$Resource.logo}"/></a>
+                            </div>
+                            <ul class="pagelist">
+                                <li><a href="{!url}">Home</a></li>
+                                <li><a href="{!url}">Careers</a></li>
+                            </ul>
+                        </div>
+                   
+
+           	
+            <section class="LatestJob">
+                
+	<div class="container p-0">
+		
+                            <div class="titleofjob">
+                                <div class="headingjob">
+                                    <h2>Latest jobs</h2>
+                                </div>
+                                <div class="alljobs">
+                                    <apex:form >
+                               <a href="#"><b><apex:commandLink value="View all jobs" action="{!viewAllJobs}" reRender="jobsContainer" /></b></a>
+                                        </apex:form> 
+                                </div>
+                            </div>
+                 
+                    <div class="Cardsjob">
+                    <div class="cardscontent ">
+                        
+                            <apex:outputPanel id="jobsContainer" styleClass="row Cardsjob">
+                                <apex:repeat value="{!filteredjobs}" var="job">
+                                    <div class="cardscontent col-lg-4 col-md-6 col-sm-12">
+                                        <div class='cardsbody '>
+                                            <div class="cardscontenttop">    
+                                                <p><span>Date Posted: {!TEXT(job.Date_Posted__c)}</span></p>
+                                            </div>
+                                            <h3>{!job.Name}</h3>
+                                            <br/>
+                                            <span class="companydetail">by <span class='namehawk'>HawkLogix Pakistan</span> in <span class="profession">Development And IT</span></span>
+                                            <br/>
+                                            <button class="viewDetail">
+                                                <apex:outputLink value="{!url1+'id='+job.Id}">
+                                                    View Detail
+                                                </apex:outputLink>
+                                            </button>
+
+                                            </div>
+                                    </div>
+                                                                               
+ 				       </apex:repeat>
+                            </apex:outputPanel>
+                           
+                        
+                    </div>
+                  </div>
+                    </div>      
+</section>
+        
+
+<!------------------------------Latest Job Section------>
+
+        
+            <footer>
+                <div class="container">
+                    <div class="footercontent">
+                        <p>Copyright © 2000-2024 salesforce.com, inc. All rights reserved</p>
+                        <p>Privacy Statement. I. Security Statement. I. Terms of Use</p>
+                    </div>
+                </div>
+            </footer>
+
+        </body>
+    </html>
+</apex:page>

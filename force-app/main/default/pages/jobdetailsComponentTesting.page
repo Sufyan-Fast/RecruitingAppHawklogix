@@ -1,0 +1,64 @@
+<apex:page sidebar="false" showHeader="false" StandardController="Job__c" >
+
+     <style>
+       
+    </style>
+
+        
+       		<div style="margin-top:20px;background-color:white; height:60px;" >
+                
+            
+            <h1 style="font-size:30px; padding-left:120px; font-family:Helvetica, Sans-serif; ">
+                Our Company
+            </h1>
+                <h2 style="padding-left:950px; font-size:15px;">
+                    Home
+                </h2 >
+                <h3 style="padding-left:25px; font-size:15px; ">
+                    Careers
+                </h3>
+                 </div>
+            <div style="padding-top:16px; border: 2px solid grey; height:45px; background:#f0f5f5;  " >
+                <h1 style="padding-left:120px; font-size:25px; padding-bottom:150px; font-family:Courier New, Monospace; "  >
+                    Careers
+                </h1>
+            </div>
+    <div style="padding-top:50px;">
+        
+                   <h1 style="padding-left:150px;">
+                       Jobs Home
+        </h1>
+     
+    </div>
+        <apex:form style="padding-top:50px;" >
+            <div style="margin-bottom:20px;">
+            <apex:outputLabel style="padding-left:170px;padding-right:195px; font-size:15px; font-weight: bold; " >Job Number: </apex:outputLabel>
+            <apex:outputField value="{!Job__c.Job_Number__c}" style=" padding-left:150px;" /> <br/>
+            </div>
+             <div style="margin-bottom:20px;">
+            <apex:outputLabel style="padding-right:212px; padding-left:170px; font-size:15px; font-weight: bold; " >Job Name: </apex:outputLabel>
+            <apex:outputField value="{!Job__c.Name}" style="padding-left:350px;"/> <br/>
+                 </div>
+             <div style="margin-bottom:20px;">
+           <apex:outputLabel style="padding-right:170px; padding-left:170px; font-size:15px; font-weight: bold; " >Job Description: </apex:outputLabel>
+            <apex:outputField value="{!Job__c.Job_Description__c}"/> <br/>
+            </div>
+             <div style="margin-bottom:20px;">
+            <apex:outputLabel style="padding-right:153px; padding-left:170px; font-size:15px; font-weight: bold; " >Job Requirements: </apex:outputLabel>
+            <apex:outputField value="{!Job__c.Job_Requirements__c}" style="margin-right:60px;" /> <br/>
+            </div>
+             <div style="margin-bottom:20px;">
+            <apex:outputLabel style="padding-right:156px; padding-left:170px; margin-bottom:50px; font-size:15px; font-weight: bold; " >Job Qualifications: </apex:outputLabel>
+            <apex:outputField value="{!Job__c.Qualifications__c} " style="margin-right:30px;"/> <br/>
+            </div>
+             <div style="margin-bottom:20px;">
+            <apex:outputLabel style="padding-right:120px; padding-left:170px; font-size:15px; font-weight: bold; " >Job Employement Type: </apex:outputLabel>
+            <apex:outputField value="{!Job__c.Employment_type__c}" style="margin-right:30px;"/> <br/>
+            </div>
+            
+        </apex:form>
+                        
+                                  
+       
+         
+</apex:page>

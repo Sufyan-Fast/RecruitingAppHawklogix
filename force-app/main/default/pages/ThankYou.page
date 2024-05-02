@@ -1,0 +1,108 @@
+<apex:page sidebar="false" showHeader="false" controller="FileUploadControllerExtension">
+
+<html>
+    <style>
+    @font-face {
+    font-family:popinlight;
+         src: url('{!$Resource.fonts}/Poppins-BoldItalic.woff') format('woff');
+    	 src: url('{!$Resource.fonts}/Poppins-BoldItalic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family:popinmedium;
+    src: url('{!$Resource.fonts}/Poppins-BlackItalic.woff') format('woff');
+    src: url('{!$Resource.fonts}/Poppins-Regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family:popinsami;
+     src: url('{!$Resource.fonts}/Poppins-Regular.woff') format('woff');
+     src: url('{!$Resource.fonts}/Poppins-Medium.woff2') format('woff2');
+  }
+  @font-face {
+    font-family:popinregular;
+   src: url('{!$Resource.fonts}/Poppins-Medium.woff') format('woff');
+    src: url('{!$Resource.fonts}/Poppins-Medium.woff2') format('woff2');
+  }
+        </style>
+<head>
+	<title>Hawk Logix</title>
+            <head>
+            <title>Hawk Logix</title>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <apex:stylesheet value="{!$Resource.newUpdatedStyle}"/>
+            <apex:stylesheet value="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+        </head>
+    <apex:includeScript value="{!URLFOR($Resource.bootstraps, '/bootstrap.min.js')}"/>
+            <apex:includeScript value="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"/>
+            <apex:includeScript value="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"/>
+<body style="padding:0px;margin:0px">
+
+<!-----------------------------Navigation Section------------------>
+
+<section class="navigation">
+	<div class="container">
+		<div class="navbar">
+			<div class="logo">
+                  <apex:outputLink value="{!url}">
+                            <img src="{!$Resource.logo}"/>
+                            </apex:outputLink>
+			</div>
+		
+		</div>
+	</div>
+</section>
+
+
+
+<section class="thankpage">
+    <div class="container">
+        <div class="row">
+			<div class="col-12">
+			
+				<div class="thankyoumsgdiv">
+					<div class="okimg">
+                        <img src="{!$Resource.Check}"/>
+					</div>
+					<p>Thank you for applying. We appreciate your interest. Our team is currently reviewing applications, and we will be in touch with qualified candidates for the next steps.</p>
+				</div>
+			</div>
+        </div>
+    </div>
+</section>
+
+<!--------------------------Form Section------>
+
+
+<footer>
+	<div class="container">
+		<div class="footercontent">
+			<p>Copyright © 2000-2023 salesforce.com, inc. All rights reserved</p>
+			<p>Privacy Statement. I. Security Statement. I. Terms of Use</p>
+		</div>
+	</div>
+</footer>
+
+
+<script>
+  var submitformvalue = [];
+     $(document).ready(function() {
+  
+$('.menubaricon').on('click',function(){
+		$('.mmenu').toggleClass('active');
+	})
+	
+	$('.mmenu .button').on('click',function(){
+		$('.mmenu').toggleClass('active');
+	});
+
+});
+
+
+
+</script>
+
+
+</body>
+    </head>
+</html>
+    </apex:page>

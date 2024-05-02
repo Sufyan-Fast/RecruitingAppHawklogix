@@ -1,0 +1,61 @@
+<apex:page controller="test" docType="html-5.0" >
+    
+
+    <apex:stylesheet value="{!$Resource.styleclass}"/>
+ <apex:form >
+    <h1>Got Talent ?<br/> Meet Opportunity</h1>
+    <div class="inputButton">
+        <a href="#" class="search-icon" onclick="searchJobs();"><i class="fa fa-search" aria-hidden="true"></i></a>
+        <apex:inputText styleclass="inputsearch" id="jobSearch" value="{!searchQuery}" onkeyup="handleSearch(event)" />
+        <apex:commandButton value="Search" action="{!searchJobs}" reRender="jobsContainer"/>
+    </div>
+    <p><span>Popular Searches:</span> Analytics, Customer Services, Design Creative Development and IT</p>
+
+    <apex:actionFunction name="searchJobs" action="{!searchJobs}" reRender="jobsContainer">
+        <apex:param name="searchParam" value="{!searchQuery}" assignTo="{!searchQuery}" />
+    </apex:actionFunction>
+</apex:form>
+        
+	
+ <div class="Cardsjob"  >
+     <apex:outputPanel id="jobsContainer" layout="block">
+                <apex:repeat value="{!filteredjobs}" var="job"  >
+                    <div class="cardscontent">
+                        <div class="cardsbody">
+                            <div class="cardscontenttop">
+                                <!-- Display relevant job information from {!job} -->
+                                <p><span>Date Posted: {!job.Date_Posted__c}</span></p>
+                                <a href="#">5 days left to apply</a>
+                            </div>
+                            <h3>{!job.Name}</h3>
+                            <br/>
+                            <span class="companydetail">by <span class='namehawk'>HawkLogix Pakistan</span> in <span class="profession">Development And IT</span></span>
+                            <br/>
+                            <button class="fulltime">Full Time</button>
+                            <button class="urgent">Urgent</button>
+                            <button class="house">In House</button>
+                            <p class="descriptionjob">{!job.Job_Description__c}</p>
+                            <apex:outputLink value="{!url1 + 'id=' + job.Id}">
+                                <button class="viewDetail">View Detail</button>
+                            </apex:outputLink>
+                        </div>
+                    </div>
+                </apex:repeat>
+         </apex:outputPanel>
+            </div>
+     
+<script>
+     function handleSearch(event) {
+        var searchInput = document.getElementById('{!$Component.jobSearch}');
+        if (!searchInput.value.trim()) {
+            // If the input is empty, trigger the search for all jobs
+            searchJobs();
+        }
+
+        // If the user presses Enter, also trigger the search
+        if (event.key === 'Enter') {
+            searchJobs();
+        }
+    }
+</script>
+</apex:page>

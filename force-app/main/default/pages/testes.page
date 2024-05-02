@@ -1,0 +1,13 @@
+<apex:page >
+    <html lang="en">
+        <head>
+        </head>
+        <body>
+            <div class="slds-spinner slds-spinner_medium">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+            <!-- Your other page content goes here -->
+        </body>
+    </html>
+</apex:page>

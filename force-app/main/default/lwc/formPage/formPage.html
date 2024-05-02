@@ -1,0 +1,67 @@
+<!-- jobForm.html -->
+<template>
+    <section class="formsection">
+        <div class="container">
+           <div class="formheading">
+               <h3>Please complete the job application below here</h3>
+           </div>
+           <div class="form-field" id="form" >
+               <div class="forName">
+                   <label class="label">Name <span>*</span></label>
+                   <input class="Namefield" type="text" onchange={handleNameChange}></input>
+               </div>
+               <div class="forEmail">
+                   <label class="label">Email <span>*</span></label>
+                   <input class="Emailfield" type="text" onchange={handleEmailChange} ></input>
+               </div>
+               <div class="forphone">
+                   <label class="label">Phone <span>*</span></label>
+                   <input class="PhoneField" type="number" onchange={handlePhoneChange} ></input>
+               </div>
+               <div class="foraddress">
+                   <label class="label">Address</label>
+                   <input class="AddressField" type="text" onchange={handleAddressChange}></input>
+               </div>
+               <div class="forReffered">
+                   <label class="label">Referred By</label>
+                   <input class="referedby" type="text" onchange={handleReferredByChange}></input>
+               </div> 
+
+               <section class="formsection">
+                <!-- ... existing code ... -->
+                <div class="forResume">
+                    <label class="label">Resume (PDF or DOC)</label>
+                    <lightning-file-upload
+                        accept={acceptedFormats}
+                        record-id={recordId}
+                        onuploadfinished={handleUploadFinished}
+                    ></lightning-file-upload>
+                </div>
+                <!-- ... existing code ... -->
+            </section>
+
+            <section class="formsection">
+                <!-- ... existing code ... -->
+                <div class="forResume">
+                    <label class="label">Cover Letter (PDF or DOC)</label>
+                    <lightning-file-upload
+                        accept={acceptedFormats}
+                        record-id={coverId}
+                        onuploadfinished={handleUploadCoverFinished}
+                    ></lightning-file-upload>
+                </div>
+                <!-- ... existing code ... -->
+            </section>
+            
+           </div>
+        </div>
+   </section>
+   
+   <section class="formsubmitionbutn">
+       <div class="btnformsubmit">
+           <button onclick={handleSubmit}>Submit</button>
+           <button class="btn backbutn">back</button>
+         </div>
+   </section>
+   
+</template>
